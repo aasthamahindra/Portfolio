@@ -113,7 +113,7 @@
           </li>
 
           <li class="social-item">
-            <a href="https://www.instagram.com/aastha_mahindra/" target="_blank" class="social-link">
+            <a href="https://www.instagram.com/aasthamahindra/" target="_blank" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
           </li>
@@ -144,23 +144,23 @@
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link  active" data-nav-link data-nav-link onclick="navigateTo('about')">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link onclick="navigateTo('resume')">Resume</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Projects</button>
+            <button class="navbar-link" data-nav-link onclick="navigateTo('projects')">Projects</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blogs</button>
+            <button class="navbar-link" data-nav-link onclick="navigateTo('blogs')">Blogs</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link onclick="navigateTo('contact')">Contact</button>
           </li>
 
         </ul>
@@ -873,7 +873,7 @@
 
   <script type="text/javascript">
     (function () {
-      emailjs.init("DVkofndXT3qZjj7Nd");
+      emailjs.init("x_OrPvS-1Q-X8sshR");
     })();
   </script>
 
@@ -884,8 +884,8 @@
       .addEventListener("submit", function (event) {
         event.preventDefault();
 
-        const serviceID = "service_6hjt97g";
-        const templateID = "template_k4e3eif";
+        const serviceID = "service_portfolio";
+        const templateID = "template_portfolio";
 
         // send the email here
         emailjs.sendForm(serviceID, templateID, this).then(
@@ -900,6 +900,18 @@
           }
         );
       });
+  </script>
+
+  <script>
+    function navigateTo(page) {
+      // Remove 'active' class from all articles
+      document.querySelectorAll('.main-content article').forEach(function (article) {
+        article.classList.remove('active');
+      });
+
+      // Add 'active' class to the selected article
+      document.querySelector(`[data-page="${page}"]`).classList.add('active');
+    }
   </script>
 
 
